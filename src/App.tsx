@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native'
 
-export default class App extends React.Component<any, any> {
+export default class App extends React.Component<any, any, any> {
 
 
   constructor(public props: any) {
@@ -14,11 +14,17 @@ export default class App extends React.Component<any, any> {
   async componentDidMount(): Promise<any> {
     return await fetch('https://facebook.github.io/react-native/movies.json')
       .then((response) => response.json())
-      .then((responseJson) => {
+      .then((data: {
+        title: string,
+        description: string,
+        movies: [{ title: string, releaseYear: string }]
+      }) => {
 
         this.setState({
           isLoading: false,
-          dataSource: responseJson.movies,
+          title: data.title,
+          description: data.description,
+          dataSource: data.movies,
         }, function () {
 
         });
@@ -41,10 +47,11 @@ export default class App extends React.Component<any, any> {
 
     return (
       <View style={styles.container}>
-      <Text style={{alignSelf: 'center',color: 'blue',fontWeight: '600'}}>Lucas Juliano </Text>
+        <Text style={{ alignSelf: 'center', color: 'blue', fontWeight: '600', fontSize: 24 }}>{this.state.title} </Text>
+        <Text style={{ alignSelf: 'center', color: 'blue', fontWeight: '600', fontSize: 16 }}>{this.state.description} </Text>
         <FlatList
           data={this.state.dataSource}
-          renderItem={({ item }) => <Text style={styles.item}>{item.title}, {item.releaseYear}</Text>}
+          renderItem={(item: any) => <Text style={styles.item}>{item.title}, {item.releaseYear}</Text>}
           keyExtractor={({ id }, index) => id}
         />
       </View>
