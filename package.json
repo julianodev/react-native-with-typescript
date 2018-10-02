@@ -1,0 +1,68 @@
+{
+  "name": "expo-ts-example",
+  "version": "0.28.0",
+  "private": true,
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.0",
+    "@types/react": "^16.3.17",
+    "@types/react-native": "^0.55.19",
+    "@types/react-native-vector-icons": "^4.6.1",
+    "@types/react-test-renderer": "^16.0.1",
+    "@types/expo": "^27.0.6",
+    "@types/expo__vector-icons": "^6.2.2",
+    "babel-jest": "^23.0.1",
+    "jest-expo": "28.0.0",
+    "react-native-scripts": "1.14.0",
+    "react-native-typescript-transformer": "1.2.10",
+    "react-test-renderer": "16.4.1",
+    "ts-jest": "^22.4.6",
+    "tslint-config-prettier": "1.13.0",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "dev-dependencies": "^1.0.0",
+    "expo": "^30.0.1",
+    "react": "16.4.0",
+    "react-native": "0.55.4",
+    "react-native-vector-icons": "^4.6.0",
+    "repo": "0.0.5",
+    "tslib": "^1.9.2"
+  },
+  "babel": {
+    "presets": [
+      "expo"
+    ]
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/react-native-vector-icons"
+    ],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
+  }
+}
